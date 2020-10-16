@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import "./Header.css";
 
 let NavigationBar = styled.div`
   margin: 65px;
@@ -18,7 +19,6 @@ let NavLogo = styled.div`
 
 let NavLinks = styled.div`
   display: flex;
-  color: black;
   justify-content: space-between;
   align-items: center;
 `;
@@ -26,11 +26,7 @@ let NavLinks = styled.div`
 let Page = styled.div`
   padding: 0 15px;
   cursor: pointer;
-  color: black;
-
-  &:active {
-    color: green;
-  }
+  text-decoration: underline none;
 `;
 
 const Header = (props) => {
@@ -39,10 +35,24 @@ const Header = (props) => {
       <NavLogo>Fruit Emporium</NavLogo>
       <NavLinks>
         <Page>
-          <Link to={"/"}>Homepage</Link>
+          <NavLink
+            exact
+            to={"/"}
+            className="un-ActiveLink"
+            activeClassName="activeLink"
+          >
+            Homepage
+          </NavLink>
         </Page>
         <Page>
-          <Link to={"/about"}>About</Link>
+          <NavLink
+            exact
+            to={"/about"}
+            className="un-ActiveLink"
+            activeClassName="activeLink"
+          >
+            About
+          </NavLink>
         </Page>
       </NavLinks>
     </NavigationBar>
